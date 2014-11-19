@@ -15,7 +15,7 @@ public class Pre_calc_ch5_solver
 		
 		
 		String trig_function = question_short.substring(0,3);
-		String variable = (question_short.substring(4,question_short_length-1));
+		int variable = Integer.parseInt((question_short.substring(4,question_short_length-1)));
 		
 		 
 		String tan = "tan";
@@ -23,7 +23,7 @@ public class Pre_calc_ch5_solver
 		String cos = "cos";
 		
 		//System.out.println(trig_function);
-		System.out.println(variable);
+		//System.out.println(variable);
 		
 		if (trig_function.equalsIgnoreCase(sin))
 		{
@@ -40,7 +40,7 @@ public class Pre_calc_ch5_solver
 			Sum_difference.tan(variable);
 		}
 		
-		System.out.println("The solution to your question is");
+		//System.out.println("The solution to your question is");
 	}
 	
 	

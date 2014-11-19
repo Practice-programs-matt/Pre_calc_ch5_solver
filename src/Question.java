@@ -22,9 +22,9 @@ public class Question {
 			Sum_difference.ask();
 		}
 		
-		else if (question_type.equalsIgnoreCase("pr"))
+		else if (question_type.equalsIgnoreCase("pts"))
 		{
-			
+			Product_to_sum.ask();
 		}
 		
 		else if (question_type.equalsIgnoreCase("ha"))

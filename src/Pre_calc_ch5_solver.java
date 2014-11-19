@@ -3,11 +3,13 @@ public class Pre_calc_ch5_solver
 {
 	public static void main(String args[])
 	{
-		Scanner scan = new Scanner(System.in);
+		Question.ask();
 		
-		System.out.println("Enter your question.");
-		String question = scan.nextLine();	
 		
+		
+		
+			
+	/*	
 		String question_short = question.replaceAll(" ", "");
 		//System.out.println(question_short);
 		
@@ -22,8 +24,6 @@ public class Pre_calc_ch5_solver
 		String sin = "sin";
 		String cos = "cos";
 		
-		//System.out.println(trig_function);
-		//System.out.println(variable);
 		
 		if (trig_function.equalsIgnoreCase(sin))
 		{
@@ -39,8 +39,7 @@ public class Pre_calc_ch5_solver
 		{
 			Sum_difference.tan(variable);
 		}
-		
-		//System.out.println("The solution to your question is");
+	*/	
 	}
 	
 	

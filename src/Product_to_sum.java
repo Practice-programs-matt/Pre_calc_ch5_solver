@@ -209,6 +209,7 @@ public class Product_to_sum {
 	}
 	
 
+
 	public static void sin_sin(String string_alpha,String string_beta,int var_alpha,int var_beta) // executes if the equation is in form sina*sinb
 	{
 		System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "-" + string_beta + ")) - (cos(" + string_alpha + "+" + string_beta +"))]");  //prints first step
@@ -265,6 +266,7 @@ public class Product_to_sum {
 		return location;
 	}
 	
+
 
 	public static void finished()
 	{

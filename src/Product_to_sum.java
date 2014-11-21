@@ -15,6 +15,9 @@ public class Product_to_sum {
 		}
 		while (i!=0);
 		
+		question = question.replaceAll(" ", "");
+		
+		
 		Product_to_sum.solve(question);
 	}
 	
@@ -46,39 +49,15 @@ public class Product_to_sum {
 		
 		if (function_1.equalsIgnoreCase("sin") && function_2.equalsIgnoreCase("sin"))
 		{
-			System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "-" + string_beta + ")) - (cos(" + string_alpha + "+" + string_beta +"))]");  //prints first step
-			
-			add_function = var_alpha + var_beta;  //adds the two values as integer
-			sub_function = var_alpha - var_beta;	//substracts the two values as integers
-			
-			String string_alpha2 = add_function +"x";    //reasigns string including x after substracting two values
-			String string_beta2 = sub_function +"x";	//reasigns string including x after substracting two values
-
-			System.out.println("\nStep 2:  (1/2)[cos("  + string_beta2 + ") - cos(" + string_alpha2 + ")]");  // uses x a literal instead of from string because they are always there and substracts both halfs
-			
-			System.out.println("\nStep 3:  (1/2)cos(" + string_beta2 + ") - (1/2)cos(" + string_alpha2 + ")");
-			
-			finished();
+			sin_sin(string_alpha,string_beta,var_alpha,var_beta);
 			
 		}
 		
 		if (function_1.equalsIgnoreCase("sin") && function_2.equalsIgnoreCase("cos"))
 		{
-			System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "+" + string_beta + ")) - (cos(" + string_alpha + "-" + string_beta +"))]\t\tenter values into equation");  //prints first step
-			
-			add_function = var_alpha + var_beta;  //adds the two values as integer
-			sub_function = var_alpha - var_beta;	//substracts the two values as integers
-			
-			String string_alpha2 = add_function +"x";    //reasigns string including x after substracting two values
-			String string_beta2 = sub_function +"x";	//reasigns string including x after substracting two values
-
-			System.out.println("\nStep 2:  (1/2)[cos("  + string_alpha2 + ") + cos(" + string_beta2 + ")]\t\tsimplify values");  // uses x a literal instead of from string because they are always there and substracts both halfs
-			
-			System.out.println("\nStep 3:  (1/2)cos(" + string_alpha2 + ") + (1/2)cos(" + string_beta2 + ") t\tdistribute 1/2");
-			
-			finished();
-			
+			sin_cos(string_alpha,string_beta,var_alpha,var_beta);
 		}
+		
 		//not done
 		if (function_1.equalsIgnoreCase("cos") && function_2.equalsIgnoreCase("cos"))
 		{
@@ -208,9 +187,44 @@ public class Product_to_sum {
 		return function_2;
 	}
 	
+	public static void sin_sin(String string_alpha,String string_beta,int var_alpha,int var_beta) // executes if the equation is in form sina*sinb
+	{
+		System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "-" + string_beta + ")) - (cos(" + string_alpha + "+" + string_beta +"))]");  //prints first step
+		
+		int add_function = var_alpha + var_beta;  //adds the two values as integer
+		int sub_function = var_alpha - var_beta;	//substracts the two values as integers
+		
+		String string_alpha2 = add_function +"x";    //reasigns string including x after substracting two values
+		String string_beta2 = sub_function +"x";	//reasigns string including x after substracting two values
+
+		System.out.println("\nStep 2:  (1/2)[cos("  + string_beta2 + ") - cos(" + string_alpha2 + ")]");  // uses x a literal instead of from string because they are always there and substracts both halfs
+		
+		System.out.println("\nStep 3:  (1/2)cos(" + string_beta2 + ") - (1/2)cos(" + string_alpha2 + ")");
+		
+		finished();
+	}
+	
+	
+	public static void sin_cos(String string_alpha,String string_beta,int var_alpha,int var_beta) // executes if the equation is in form sina*cosb
+	{
+		System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "+" + string_beta + ")) - (cos(" + string_alpha + "-" + string_beta +"))]\t\tenter values into equation");  //prints first step
+		
+		int add_function = var_alpha + var_beta;  //adds the two values as integer
+		int sub_function = var_alpha - var_beta;	//substracts the two values as integers
+		
+		String string_alpha2 = add_function +"x";    //reasigns string including x after substracting two values
+		String string_beta2 = sub_function +"x";	//reasigns string including x after substracting two values
+
+		System.out.println("\nStep 2:  (1/2)[cos("  + string_alpha2 + ") + cos(" + string_beta2 + ")]\t\tsimplify values");  // uses x a literal instead of from string because they are always there and substracts both halfs
+		
+		System.out.println("\nStep 3:  (1/2)cos(" + string_alpha2 + ") + (1/2)cos(" + string_beta2 + ") t\tdistribute 1/2");
+		
+		finished();
+	}
+	
 	public static void finished()
 	{
-		System.out.println("Problem Solved! \n Enter another problem [Y/N]>>>>>>>>>>>");
+		System.out.println("\nEnter another problem [Y/N]>>>>>>>>>>>");
 		
 		Scanner scan2 = new Scanner(System.in);
 		String response = scan2.nextLine();

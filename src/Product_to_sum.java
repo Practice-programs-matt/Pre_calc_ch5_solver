@@ -178,11 +178,11 @@ public class Product_to_sum {
 	///// returns the trig function of the equation purely for walk through
 	public static String function_2(String question)
 	{
-		int first_par = 0;
-		int second_par = question.indexOf(")");
-		int third_par = question.indexOf("(", second_par);
+		//int first_par = 0;
+		//int second_par = question.indexOf(")");
+		//int third_par = question.indexOf("(", second_par);
 		
-		String function_2 = question.substring(second_par+1,third_par);
+		String function_2 = question.substring(find_par(2,question)+1,find_par(3,question));
 		
 		return function_2;
 	}
@@ -220,6 +220,27 @@ public class Product_to_sum {
 		System.out.println("\nStep 3:  (1/2)cos(" + string_alpha2 + ") + (1/2)cos(" + string_beta2 + ") t\tdistribute 1/2");
 		
 		finished();
+	}
+	
+	public static int find_par(int par_number, String question)
+	{
+		int par_location = 0;  // location of the latest par
+		int location = 0;
+		int m =0;
+		
+		while (par_location <=par_number)
+		{
+			if (par_number %2 == 0)
+			{
+				location = question.indexOf("(", location +1);
+			}
+			else
+			{
+				location = question.indexOf("x", location+1);
+			}		
+		}
+		
+		return location;
 	}
 	
 	public static void finished()

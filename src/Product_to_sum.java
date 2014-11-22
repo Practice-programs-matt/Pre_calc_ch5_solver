@@ -31,13 +31,13 @@ public class Product_to_sum {
 		int var_alpha = find_a_num(question);        //finds value as integer not including x, of first function
 		int var_beta = find_b_num(question);        //finds value as integer not including x, of second function
 		
-		System.out.println(var_beta);
+		System.out.println((find_par(2,question) + find_par(3,question)));
 		
 		String function_1 = function_1(question);   //finds just the trig operator of the first function  only used to check what type of equation
 		String function_2 = function_2(question);   //finds just the trig operator of the second function
 		
 		//check to make sure question is valid if not will start over
-		if (!(function_1.equalsIgnoreCase("sin") || function_1.equalsIgnoreCase("cos") || function_1.equalsIgnoreCase("tan") || function_2.equalsIgnoreCase("sin") || function_2.equalsIgnoreCase("cos") || function_2.equalsIgnoreCase("tan")) )
+		if (!((function_1.equalsIgnoreCase("sin") && function_1.equalsIgnoreCase("cos") && function_1.equalsIgnoreCase("tan")) || (function_2.equalsIgnoreCase("sin") || function_2.equalsIgnoreCase("cos") || function_2.equalsIgnoreCase("tan"))))
 		{
 			error();
 		}
@@ -46,7 +46,9 @@ public class Product_to_sum {
 		
 		if (function_1.equalsIgnoreCase("sin") && function_2.equalsIgnoreCase("sin"))
 		{
-			System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "-" + string_beta + ")) - (cos(" + string_alpha + "+" + string_beta +"))]");  //prints first step
+			
+			sin_sin(string_alpha,string_beta,var_alpha,var_beta);
+			/*System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "-" + string_beta + ")) - (cos(" + string_alpha + "+" + string_beta +"))]");  //prints first step
 			
 			add_function = var_alpha + var_beta;  //adds the two values as integer
 			sub_function = var_alpha - var_beta;	//substracts the two values as integers
@@ -58,7 +60,7 @@ public class Product_to_sum {
 			
 			System.out.println("\nStep 3:  (1/2)cos(" + string_beta2 + ") - (1/2)cos(" + string_alpha2 + ")");
 			
-			finished();
+			finished();*/
 			
 		}
 		
@@ -203,6 +205,7 @@ public class Product_to_sum {
 		//int second_par = question.indexOf(")");
 		//int third_par = question.indexOf("(", second_par);
 		
+		
 		String function_2 = question.substring(find_par(2,question)+1,find_par(3,question));
 		
 		return function_2;
@@ -213,6 +216,7 @@ public class Product_to_sum {
 
 	public static void sin_sin(String string_alpha,String string_beta,int var_alpha,int var_beta) // executes if the equation is in form sina*sinb
 	{
+		System.out.println(var_beta);
 		System.out.println("Step 1:  (1/2)[(cos(" + string_alpha + "-" + string_beta + ")) - (cos(" + string_alpha + "+" + string_beta +"))]");  //prints first step
 		
 		int add_function = var_alpha + var_beta;  //adds the two values as integer
@@ -250,7 +254,7 @@ public class Product_to_sum {
 	{
 		int par_location = 0;  // location of the latest par
 		int location = 0;
-		int m =0;
+		//int m =0;
 		
 		while (par_location <=par_number)
 		{
@@ -262,6 +266,7 @@ public class Product_to_sum {
 			{
 				location = question.indexOf("x", location+1);
 			}		
+			par_location++;
 		}
 		
 		return location;
